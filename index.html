@@ -3,124 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sanctuary of Style • Alabama</title>
+    <title>The Sanctuary of Style</title>
     <style>
-        /* RESET & BASE ATMOSPHERE */
-        body, html { 
-            margin: 0; padding: 0; 
-            height: 100%; width: 100%;
-            overflow: hidden; /* Lock the screen so we can scroll *inside* the layers */
+        /* THE PALACE WALLS */
+        body { 
+            background: radial-gradient(circle, #2b0303 0%, #000000 100%); 
+            color: #d4af37; 
             font-family: 'Georgia', serif; 
-            background: #000; /* Deep black base */
+            margin: 0; 
+            line-height: 1.6; 
         }
 
-        /* THE INTEGRATED BACKGROUND IMAGE */
-        .sanctuary-container {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            /* Use your specific image link here (ensure a direct image link works) */
-            background: url('path-to-your-hosted-image.png') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* OVERLAY MAPPING LAYERS */
-        .click-layer {
-            position: absolute;
-            cursor: pointer;
-            border: 1px solid transparent; /* Keep it invisible, or use a color to debug placement */
-            transition: border 0.3s;
-        }
-        
-        /* Debugging Mode: Uncomment the next line to 'see' where the links are */
-        /* .click-layer { border-color: red; } */
-
-        /* 1. Zone: THE WARDROBE (Mapped to the Persian Rug) */
-        #zone-wardrobe {
-            top: 60%; left: 15%;
-            width: 70%; height: 35%;
-            z-index: 10;
-        }
-        #zone-wardrobe:hover { border-color: #d4af37; box-shadow: 0 0 50px rgba(212, 175, 55, 0.4); }
-
-        /* 2. Zone: THE MENAGERIE (Mapped to the Chandelier) */
-        #zone-menagerie {
-            top: 2%; left: 20%;
-            width: 60%; height: 25%;
-            z-index: 10;
-        }
-        #zone-menagerie:hover { border-color: #fff; box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); }
-
-        /* 3. Zone: THE APOTHECARY (Mapped to the Window Glow) */
-        #zone-apothecary {
-            top: 25%; left: 30%;
-            width: 40%; height: 35%;
-            z-index: 10;
-        }
-        #zone-apothecary:hover { border-color: #4a0404; box-shadow: 0 0 30px rgba(74, 4, 4, 0.6); }
-
-        /* 4. Zone: THE ARCHIVE (Mapped to the Wallpaper Sections) */
-        #zone-archive {
-            top: 35%; left: 5%;
-            width: 20%; height: 30%; /* Placement left and right */
-            z-index: 10;
-        }
-        #zone-archive-right { /* Second wallpaper panel */
-            top: 35%; left: 75%;
-            width: 20%; height: 30%;
-            z-index: 10;
-        }
-        #zone-archive:hover, #zone-archive-right:hover { border-color: #666; }
-
-        /* LINK STYLING (The original navigation remains at the top, over the header) */
-        nav { 
-            position: fixed; /* Keep original nav floating at the top */
-            top: 0; left: 0; width: 100%;
-            background: rgba(0, 0, 0, 0.8); 
-            padding: 15px; 
-            text-align: center; 
-            z-index: 200; 
-            border-bottom: 2px solid #d4af37;
-        }
-        nav a { color: #d4af37; text-decoration: none; margin: 0 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* SECTION TITLES & HEADERS (Original Styles) */
+        /* THE GRAND FOYER (Header) */
         header { 
-            position: absolute; top: 10%; width: 100%; text-align: center;
-            z-index: 150; pointer-events: none; /* Make header pass-through clicks */
+            padding: 80px 20px; 
+            text-align: center; 
+            border-bottom: 3px double #d4af37; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://www.transparenttextures.com/patterns/black-paper.png'); /* Adds a vintage texture */
+            box-shadow: inset 0 0 50px #000;
         }
-        h1 { font-size: 2.5rem; letter-spacing: 5px; text-transform: uppercase; color: #d4af37; text-shadow: 0px 0px 15px rgba(212, 175, 55, 0.7); }
-        .subtitle { font-style: italic; color: #fff; letter-spacing: 1px; opacity: 0.7; }
 
+        h1 { 
+            font-size: 2.8rem; 
+            letter-spacing: 6px; 
+            text-transform: uppercase; 
+            margin: 0; 
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .subtitle { font-style: italic; color: #fff; margin-top: 10px; letter-spacing: 2px; }
+        
+        /* NAVIGATION BAR */
+        nav { 
+            background: rgba(26, 26, 26, 0.9); 
+            padding: 20px; 
+            text-align: center; 
+            border-bottom: 1px solid #d4af37; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        nav a { color: #d4af37; text-decoration: none; margin: 0 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; font-weight: bold; }
+
+        /* SECTION TITLES */
+        .section-title { 
+            margin: 60px auto 20px; 
+            font-size: 2.2rem; 
+            text-transform: uppercase; 
+            border-bottom: 1px solid #d4af37; 
+            text-align: center; 
+            width: 70%;
+            padding-bottom: 10px;
+        }
+
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+        
+        /* THE GILDED FRAMES (Product Cards) */
+        .product-card { 
+            background: #1a1a1a; 
+            border: 2px solid #d4af37; 
+            margin: 20px; 
+            width: 280px; 
+            border-radius: 140px 140px 10px 10px; /* Gothic Arch Shape */
+            overflow: hidden; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            transition: transform 0.3s;
+        }
+        .product-card:hover { transform: scale(1.02); }
+
+        .product-card img { width: 100%; height: 350px; object-fit: cover; border-bottom: 1px solid #d4af37; }
+        
+        .details { padding: 20px; background: rgba(0,0,0,0.5); }
+        .details h3 { color: #fff; margin: 0 0 10px 0; font-size: 1.3rem; letter-spacing: 1px; }
+        .details p { color: #ccc; font-size: 0.9rem; margin-bottom: 15px; }
+
+        .price { font-size: 1.5rem; color: #d4af37; margin: 10px 0; font-weight: bold; }
+        
+        button { 
+            background: #d4af37; 
+            color: #000; 
+            border: none; 
+            padding: 10px 25px; 
+            font-weight: bold; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            border-radius: 5px;
+            letter-spacing: 1px;
+        }
+
+        footer { 
+            padding: 60px; 
+            text-align: center; 
+            font-size: 0.8rem; 
+            color: #888; 
+            border-top: 1px solid #333; 
+            margin-top: 100px;
+            background: #000;
+        }
     </style>
 </head>
 <body>
 
-    <div class="sanctuary-container">
+<header>
+    <h1>The Sanctuary of Style</h1>
+    <div class="subtitle">Boutique Curations • Historic Archives • The Apothecary</div>
+</header>
 
-        <a href="#wardrobe" id="zone-wardrobe" class="click-layer"></a>
-        <a href="#menagerie" id="zone-menagerie" class="click-layer"></a>
-        <a href="#apothecary" id="zone-apothecary" class="click-layer"></a>
-        <a href="#archive" id="zone-archive" class="click-layer"></a>
-        <a href="#archive" id="zone-archive-right" class="click-layer"></a>
+<nav>
+    <a href="#wardrobe">Wardrobe</a>
+    <a href="#treasury">Treasury</a>
+    <a href="#apothecary">Apothecary</a>
+    <a href="#menagerie">Menagerie</a>
+    <a href="#archive">Archive</a>
+</nav>
 
-        <nav>
-            <a href="#wardrobe">Wardrobe</a>
-            <a href="#treasury">Treasury</a>
-            <a href="#apothecary">Apothecary</a>
-            <a href="#menagerie">Menagerie</a>
-            <a href="#archive">Archive</a>
-        </nav>
+<div id="wardrobe" class="section-title">The Wardrobe</div>
 
-        <header>
-            <h1>The Sanctuary of Style</h1>
-            <div class="subtitle">Curated Boutique • Historic Archives • The Apothecary</div>
-        </header>
-
+<div class="gallery">
+    <div class="product-card">
+        <img src="zebra-top-velvet.jpg" alt="Zebra Print Top">
+        <div class="details">
+            <h3>Gothic Zebra Peplum</h3>
+            <p>High-contrast black zebra on white. Dramatic puffy sleeves and cinched waist. Size: Large.</p>
+            <div class="price">$35.00</div>
+            <button>Acquire Piece</button>
+        </div>
     </div>
 
-    </body>
+    <div class="product-card">
+        <img src="palace-pants-red.jpg" alt="Palace Pants">
+        <div class="details">
+            <h3>Palace Wide-Leg Denim</h3>
+            <p>Flowy pleats with gold & crimson borders. Distressed detailing. Size: Large.</p>
+            <div class="price">$42.00</div>
+            <button>Acquire Piece</button>
+        </div>
+    </div>
+</div>
+
+<div id="treasury" class="section-title">The Treasury</div>
+<div id="apothecary" class="section-title">The Apothecary</div>
+<div id="menagerie" class="section-title">The Menagerie</div>
+<div id="archive" class="section-title">The Archive</div>
+
+<footer>
+    &copy; 2026 The Sanctuary of Style • Shelby, Alabama<br>
+    <small>Est. 1200 • Reimagined 2026</small>
+</footer>
+
+</body>
 </html>
